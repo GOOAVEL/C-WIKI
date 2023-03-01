@@ -25,7 +25,7 @@ long a64 = -9_223_372_036_854_775_808; // 64 - разрядное целое ч�
 //(до 9_223_372_036_854_775_807)
 // and others...
 
-System.Console.WriteLine(13 / 5); // => | 2 | т.к тип данных - int
+Console.WriteLine(13 / 5); // => | 2 | т.к тип данных - int
 
 // ----------------------------------------------------------------
 //TODO#2 FLOAT/DOUBLE/DECIMAL = число с плавающей точкой/вещественные числа
@@ -40,25 +40,40 @@ Console.WriteLine(i++);  // 0    x = 1
 Console.WriteLine(++i); //  2    x = 2
 //--------------------------------------------------------------------
 
-//TODO#3 STRING = текст/строка   |''| - one symbol & |""| - more symbols
+//TODO#3 STRING|CHAR = текст/строка   |''| - one symbol & |""| - more symbols
 
-char zero = '0'; // one symbol
 string lastName = "Melone"; // create a new variable type string
+string n = String.Empty; //Empty srting
 
-Convert.ToInt32("34"); // => convert to integer
+Convert.ToInt32("34"); // => convert to integer (лучший вариант, конвертирует все)
+Int32.Parse("34"); // => convert to integer (worlk only with numbers and will an error)
+
+Console.WriteLine("TAB /t"); // => string tabulation
+Console.WriteLine("New Line /n"); // => new string
 
 // the method returning copy string in LOWERCASE
 string lastNameLowerCase = lastName.ToLower();
 lastName.ToUpper();// in UPERCASE
 
 //---- Конкатенация and string interpolation
-char x = '!';
+char x = '!'; // one symbol
+
+char foor = '4';      // !convert to char in int
+int w = foor - '0';
+
 Console.WriteLine("Hello, " + userName);    // => output "Hello, (userName)"
 Console.WriteLine("Hello, {0}{1}", userName, x); // => output "Hello, (userName)!
 //                   index ^  ^ index   
 
+string example = "— Я думаю, — сказал князь, улыбаясь, — что,"
+               + "ежели бы вас послали вместо нашего милого Винценгероде,"
+               + "вы бы взяли приступом согласие прусского короля."
+               + "Вы так красноречивы. Вы дадите мне чаю?";
+
 // String interpolation
 Console.WriteLine($"Hello {userName}"); // => output "Hello, (userName)"
+
+example.Replace(" ", "_"); // => заменят символы
 //----------------------------------------
 
 //TODO#4 BOOL = логический тип (false/true) 
@@ -68,29 +83,26 @@ bool a = false; // create a new variable type bool
 //?...........................RANDOM.................................
 int min = 0, max = 11;
 new Random().Next(min, max); // generate random integer numbers (from 0 to 10)
-new Random().Next(16);  // to 15
+new Random().Next(16);  // from 0 to 15
 
 //...................................................................
 //?+++++++++++++++++++++++++ Условные ветвления +++++++++++++++++++++++++
 //Логические операторы И (&&) vs ИЛИ (||).
-if (true)
+if (true || false)  //true
 {
     System.Console.WriteLine("I`s TRUE!");
 }
-else
+else if (true && false) //false
 {
     System.Console.WriteLine("I`s FALSE!");
 } // VSC подсказывает - нет условий для выполнения "else"
 
 // another option
-
 if (true) Console.WriteLine(3 * 3);     // 9
 else Console.WriteLine(3 / 3);
-if (false) Console.WriteLine(4 * 3);
-else Console.WriteLine(3 - 9);        // -6
 
 //?............................ SWITCH ............................
-System.Console.Write("Enter the number of days of week: ");
+Console.Write("Enter the number of days of week: ");
 string numberDay = System.Console.ReadLine();
 
 switch (numberDay)
@@ -109,16 +121,20 @@ switch (numberDay)
 //?++++++++++++++++++++++++ WHile/For/Foreach +++++++++++++++++++++++++++++
 while (true)
 {
-    if (true) System.Console.WriteLine("Hello");
+    if (true) Console.WriteLine("Hello");
     break;   // to stop and out loop
 }
+int q = 0;
+do
+{
+    Console.WriteLine(++q);  // выполнится 2 раза (1,2)
+} while (q < 2);
+
 //====================== Another commands ===========================
 
 Console.Clear(); // clear to console (bush)
 Console.SetCursorPosition(10, 4); // set cursor position (в данном случае в консоли)
 //10 - left position, 4 - up position (символы в консоле начинаются с 0)
-
-a16 = 3; //example 
 
 // TODO: Dictionary:
 //? 1. indent - отступ, абзац.
